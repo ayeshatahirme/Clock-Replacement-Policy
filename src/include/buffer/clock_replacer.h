@@ -2,6 +2,8 @@
 //
 //                         BusTub
 //
+//*********************** 2018-CS-22 ************************************
+//
 // clock_replacer.h
 //
 // Identification: src/include/buffer/clock_replacer.h
@@ -47,6 +49,12 @@ class ClockReplacer : public Replacer {
 
  private:
   // TODO(student): implement me!
+  size_t clock_Hand;
+  size_t buffer_Frames;
+  size_t replacer_Frames;
+  std::vector<int> in_Frame_Replacer;
+  std::vector<bool> rf;
+  std::mutex process_Lock;
 };
 
 }  // namespace bustub
