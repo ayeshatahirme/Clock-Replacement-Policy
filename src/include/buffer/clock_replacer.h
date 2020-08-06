@@ -2,8 +2,6 @@
 //
 //                         BusTub
 //
-//*********************** 2018-CS-22 ************************************
-//
 // clock_replacer.h
 //
 // Identification: src/include/buffer/clock_replacer.h
@@ -16,7 +14,7 @@
 
 #include <list>
 #include <mutex>  // NOLINT
-#include <vector>
+#include <unordered_map>
 
 #include "buffer/replacer.h"
 #include "common/config.h"
@@ -26,7 +24,8 @@ namespace bustub {
 /**
  * ClockReplacer implements the clock replacement policy, which approximates the Least Recently Used policy.
  */
-class ClockReplacer : public Replacer {
+
+	class ClockReplacer : public Replacer {
  public:
   /**
    * Create a new ClockReplacer.
@@ -47,14 +46,14 @@ class ClockReplacer : public Replacer {
 
   size_t Size() override;
 
+  struct Frame {
+    int status;
+    struct Frame *link;
+  };
+
  private:
   // TODO(student): implement me!
-  size_t clock_Hand;
-  size_t buffer_Frames;
-  size_t replacer_Frames;
-  std::vector<int> in_Frame_Replacer;
-  std::vector<bool> rf;
-  std::mutex process_Lock;
-};
 
+};
 }  // namespace bustub
+

@@ -33,7 +33,7 @@ class BufferPoolManager {
 
   /**
    * Creates a new BufferPoolManager.
-   * @param pool_size the size of the buffer pool
+   * @param pool_sisze the size of the buffer pool
    * @param disk_manager the disk manager
    * @param log_manager the log manager (for testing only: nullptr = disable logging)
    */
